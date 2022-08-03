@@ -1,4 +1,4 @@
-import { SlideWindow } from "./blocks/Slide";
+import { SlideWindow } from "./HeroJS/Slide";
 
 export function Slide() {
     return (<section className=" slider_section position-relative">

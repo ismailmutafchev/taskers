@@ -7,11 +7,11 @@ export function SlideWindow() {
 
 
     setTimeout(() => {
-        if (slideNumber === 1) {
+        if (slideNumber == 1) {
             setActive(slideNumber = 2)
-        } else if (slideNumber === 2) {
+        } else if (slideNumber == 2) {
             setActive(slideNumber = 3)
-        } else if (slideNumber === 3) {
+        } else if (slideNumber == 3) {
             setActive(slideNumber = 1)
         }
     }, 1000)

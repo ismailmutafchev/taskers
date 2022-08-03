@@ -1,12 +1,15 @@
+import { Link } from "react-router-dom"
+
+
 export function Nav() {
     return(<header className="header_section">
     <div className="container-fluid">
         <nav className="navbar navbar-expand-lg custom_nav-container ">
-            <a className="navbarnd" href="index">
+            <Link className="navbarnd" to="/">
                 <span>
                     Heustonn
                 </span>
-            </a>
+            </Link>
             <button className="navbar-toggler ml-auto" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -17,31 +20,31 @@ export function Nav() {
                 <div className="d-flex mx-auto flex-column flex-lg-row align-items-center">
                     <ul className="navbar-nav  ">
                         <li className="nav-item active">
-                            <a className="nav-link" href="index">Home <span className="sr-only">(current)</span></a>
+                            <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="about"> About </a>
+                            <Link className="nav-link" to="about"> About </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="service"> Services </a>
+                            <Link className="nav-link" to="services"> Services </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="how-it-works"> How It Works </a>
+                            <Link className="nav-link" to="how-it-works"> How It Works </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="find-services">Find Services</a>
+                            <Link className="nav-link" to="find-services">Find Services</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="login">Login</a>
+                            <Link className="nav-link" to="login">Login</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="register">Register</a>
+                            <Link className="nav-link" to="register">Register</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="post">Post Service</a>
+                            <Link className="nav-link" to="post">Post Service</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="contact">Contact</a>
+                            <Link className="nav-link" to="contact">Contact</Link>
                         </li>
                     </ul>
                 </div>

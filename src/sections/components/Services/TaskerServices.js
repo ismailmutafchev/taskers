@@ -1,4 +1,4 @@
-import { ServiceCard } from "./blocks/OurServices";
+import { ServiceCard } from "../TaskerServices/OurServices";
 
 export function Services() {
     return(    <section className="service_section layout_padding-bottom">

@@ -1,4 +1,4 @@
-import { HowItWorksCard } from "./blocks/HowItWorksCard";
+import { HowItWorksCard } from "./HowItWorksCard";
 
 export function HowItWorks() {
     return(<section className="work_section layout_padding">
