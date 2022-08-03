@@ -4,7 +4,7 @@ import { HowItWorks } from './sections/components/HowItWorks/HowItWorks'
 import { Login } from "./sections/components/Login/Login"
 import { Register } from "./sections/components/Register/Register"
 import { Contact } from "./sections/components/Contact/Contact"
-import { Services } from "./sections/components/Services/TaskerServices"
+import { Services } from "./sections/components/TaskerServices/TaskerServices"
 import { Footer } from "./sections/components/Common/Footer"
 import { Slide } from "./sections/components/Home/HeroSlide"
 

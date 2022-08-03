@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { SlideWindow } from "./HeroJS/Slide";
 
 export function Slide() {
@@ -8,9 +9,9 @@ export function Slide() {
         <div className="container">
             <div className="slider_nav-box">
                 <div className="btn-box">
-                    <a href="/">
+                    <Link to="/about">
                         Read More
-                    </a>
+                    </Link>
                 </div>
                 <div className="custom_carousel-control">
                     <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
