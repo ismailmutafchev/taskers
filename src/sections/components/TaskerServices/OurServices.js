@@ -7,7 +7,7 @@ export function ServiceCard(props) {
       </div>
       <div className="detail-box">
         <h6>
-          {props.name}
+          {props.service}
         </h6>
         <p>
           {props.description}
