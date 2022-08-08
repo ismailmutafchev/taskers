@@ -20,17 +20,25 @@ import { useEffect, useState } from "react";
 
 export function App() {
 
-  const [services, setData] = useState([])
-  let response = useData()
+  
+  const [services, setService] = useState([])
+  let responseService = useData('services')
   useEffect(() => {
-    response.then(res => setData(Object.values(res)));
+    responseService.then(res => setService(Object.values(res)));
+  },[])
+  
+
+  const [posts, setPost] = useState([])
+  let responsePost = useData('posts')
+  useEffect(() => {
+    responsePost.then(res => setPost(Object.values(res)));
   },[])
   
   return (
     <div className="App">
       <Nav />
       <Routes>
-        <Route path='/' element={<Slide />} />
+        <Route path='/' element={<Slide posts = {posts}/>} />
         <Route path='/about' element={<About />} />
         <Route path='/how-it-works' element={<HowItWorks />} />
         <Route path='/contact' element={<Contact />} />

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { SlideWindow } from "./HeroJS/Slide";
 
-export function Slide() {
+export function Slide(props) {
     return (<section className=" slider_section position-relative">
         <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-            <SlideWindow/>
+            <SlideWindow postData={props.posts}/>
         </div>
         <div className="container">
             <div className="slider_nav-box">

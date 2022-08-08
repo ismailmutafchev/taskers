@@ -1,0 +1,32 @@
+{
+    "52b96d2d-6574-45f9-b190-cf43ad629d09": {
+        "serviceOne": "Home",
+        "serviceTwo": "Cleaning",
+        "name": "Ang and Brat",
+        "price": 10,
+        "rating": 5,
+        "description": "Cleaning, stocking and supplying designated facility areas (dusting, sweeping, vacuuming, mopping, cleaning ceiling vents, restroom cleaning etc) Performing and documenting routine inspection and maintenance activities. Carry out heavy cleaning tasks and special projects",
+        "img": "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX39246923.jpg",
+        "_id": "52b96d2d-6574-45f9-b190-cf43ad629d09"
+    },
+    "5f865e26-5bc8-42ad-9fd4-f45be5eb9163": {
+        "serviceOne": "Furniture",
+        "serviceTwo": "Assembly",
+        "name": "John Smith",
+        "price": 10,
+        "rating": 5,
+        "description": "My duties include adjusting, trimming, fitting parts, inspecting wood, ensuring quality standards, handling material orders, placing orders on pallets, and using equipment such as screwdrivers, drawer machines, and staple guns.",
+        "img": "https://thumbs.dreamstime.com/b/furniture-assembly-man-drill-vector-flat-style-illustration-furniture-assembly-man-drill-136777920.jpg",
+        "_id": "5f865e26-5bc8-42ad-9fd4-f45be5eb9163"
+    },
+    "9f809a2b-cd60-4112-a6e9-fbffa055f489": {
+        "serviceOne": "Floor",
+        "serviceTwo": "Instalation",
+        "name": "Bobby Savov",
+        "price": 10,
+        "rating": 5,
+        "description": "Laying wood, carpeting, tiles, concrete, and other types of flooring. Ensuring that the flooring materials are well-positioned, secure, and clean. Completing the installation by applying appropriate finishes. Educating clients about suitable care for their floors.",
+        "img": "https://thumbs.dreamstime.com/z/floor-installer-male-working-panels-poster-vector-illustration-person-wearing-special-uniform-protective-helmet-flooring-126994416.jpg",
+        "_id": "9f809a2b-cd60-4112-a6e9-fbffa055f489"
+    }
+}
