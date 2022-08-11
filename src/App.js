@@ -14,6 +14,7 @@ import { useData } from "./Hooks/useData";
 import { useEffect, useState } from "react";
 
 import { AuthContext } from "./context/authContext";
+import { Logout } from "./sections/components/Logout/Logout";
 
 
 
@@ -38,9 +39,12 @@ export function App() {
   const userLogin = (authData) => {
     setAuth(authData)
   }
+  const userLogout = () => {
+    setAuth({})
+  }
   
   return (
-    <AuthContext.Provider value={{ user: auth, userLogin }}>
+    <AuthContext.Provider value={{ user: auth, userLogin , userLogout }}>
 
     <div className="App">
       <Nav />
@@ -53,6 +57,7 @@ export function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/services' element={<Services services={services}/>} />
         <Route path='/post' element={<PostService />} />
+        <Route path='/logout' element={<Logout/>} />
       </Routes>
       <Footer />
     </div>

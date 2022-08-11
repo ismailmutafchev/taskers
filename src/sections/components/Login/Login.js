@@ -25,7 +25,6 @@ export function Login() {
               console.log(error)
               navigate('/')
             })
-      
         }
     return (
         <section className="contact_section input login" id="login">
@@ -44,7 +43,7 @@ export function Login() {
                             <button type="submit">LOGIN</button>
                         </div>
                         <div className="container signin">
-                            <p>Dont have an account?<a href="/register">Sign up</a>.</p>
+                            <p>Dont have an account?<Link to="/register">Sign up</Link>.</p>
                         </div>
                     </div>
                 </div>
