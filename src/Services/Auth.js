@@ -6,6 +6,11 @@ export const login = (email,password) => {
     return reqest.post(`${authUrl}/login`,{email,password})
 }
 
+
+export const register = (email,password) => {
+    return reqest.post(`${authUrl}/register`,{email,password})
+}
+
 export const logout = async (accessToken) => {
     try {
       const response =  await fetch(`${authUrl}/logout`, {

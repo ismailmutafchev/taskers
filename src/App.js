@@ -10,7 +10,7 @@ import { Slide } from "./sections/components/Home/HeroSlide"
 
 import { Route, Routes } from 'react-router-dom'
 import { PostService } from "./sections/components/PostService/PostService";
-import { useData } from "./Hooks/useData";
+import { useData } from "./Services/useData";
 import { useEffect, useState } from "react";
 
 import { AuthContext } from "./context/authContext";
@@ -39,12 +39,15 @@ export function App() {
   const userLogin = (authData) => {
     setAuth(authData)
   }
+  const userRegister = (authData) => {
+    setAuth(authData)
+  }
   const userLogout = () => {
     setAuth({})
   }
   
   return (
-    <AuthContext.Provider value={{ user: auth, userLogin , userLogout }}>
+    <AuthContext.Provider value={{ user: auth, userLogin , userLogout, userRegister }}>
 
     <div className="App">
       <Nav />

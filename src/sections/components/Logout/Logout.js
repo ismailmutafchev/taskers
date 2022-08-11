@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../../context/authContext'
 
 
-import * as authService from '../../../Hooks/Auth'
+import * as authService from '../../../Services/Auth'
 
 
 export const Logout = () => {

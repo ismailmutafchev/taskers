@@ -1,10 +1,34 @@
-import { Link } from 'react-router-dom'
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 
+import { AuthContext } from '../../../context/authContext';
+import * as authService from '../../../Services/Auth'
 
 export function Register() {
+    const { userRegister } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const {
+            email,
+            password,
+        } = Object.fromEntries(new FormData(e.target))
+
+        authService.register(email, password)
+            .then(authData => {
+                userRegister(authData)
+                navigate('/')
+            })
+            .catch((error) => {
+                console.log(error)
+                navigate('/')
+            })
+    }
+
     return (<section id="register">
-        <form className="register contact_section input" id="register-form">
+        <form onSubmit={onSubmit} className="register contact_section input" id="register-form">
             <div className="custom_heading-container">
                 <h3 className="custom_heading-container">Register</h3>
             </div>
