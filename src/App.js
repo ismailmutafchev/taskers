@@ -13,7 +13,7 @@ import { PostService } from "./sections/components/PostService/PostService";
 import { useData } from "./Hooks/useData";
 import { useEffect, useState } from "react";
 
-
+import { AuthContext } from "./context/authContext";
 
 
 
@@ -33,8 +33,15 @@ export function App() {
   useEffect(() => {
     responsePost.then(res => setPost(Object.values(res)));
   },[])
+
+  const [auth, setAuth] = useState({})
+  const userLogin = (authData) => {
+    setAuth(authData)
+  }
   
   return (
+    <AuthContext.Provider value={{ user: auth, userLogin }}>
+
     <div className="App">
       <Nav />
       <Routes>
@@ -49,6 +56,7 @@ export function App() {
       </Routes>
       <Footer />
     </div>
+    </AuthContext.Provider>
   )
 }
 export default App;

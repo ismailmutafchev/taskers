@@ -150,6 +150,11 @@ body {
 .custom_nav-container .navbar-nav .nav-item .nav-link:hover::before {
   display: block;
 }
+.custom_nav-container .navbar-nav .nav-item .nav-link:focus::before {
+  width: 37px;
+  transition: ease-out;
+  display: block;
+}
 
 a,
 a:hover,
@@ -703,6 +708,7 @@ a:focus {
   background-color: white;
   padding: 16px;
   text-align: center;
+  border-radius: 10px;
 }
 
 /* end footer section*/
