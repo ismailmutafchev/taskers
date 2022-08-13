@@ -10,7 +10,7 @@ import { Slide } from "./sections/components/Home/HeroSlide"
 
 import { Route, Routes } from 'react-router-dom'
 import { PostService } from "./sections/components/PostService/PostService";
-import { useData } from "./Services/useData";
+import { getData, createPost } from "./Services/useData";
 import { useEffect, useState } from "react";
 
 import { AuthContext } from "./context/authContext";
@@ -23,14 +23,14 @@ export function App() {
 
   
   const [services, setService] = useState([])
-  let responseService = useData('services')
+  let responseService = getData('services')
   useEffect(() => {
     responseService.then(res => setService(Object.values(res)));
   },[])
   
 
   const [posts, setPost] = useState([])
-  let responsePost = useData('posts')
+  let responsePost = getData('posts')
   useEffect(() => {
     responsePost.then(res => setPost(Object.values(res)));
   },[])
@@ -45,9 +45,21 @@ export function App() {
   const userLogout = () => {
     setAuth({})
   }
+
+  const updatePosts = (newPost) => {  
+    setPost(posts => [
+      ...posts, 
+      {
+        // ...newPost
+      }
+    ])
+  }
   
   return (
-    <AuthContext.Provider value={{ user: auth, userLogin , userLogout, userRegister }}>
+    <AuthContext.Provider value={{
+       user: auth, userLogin , userLogout, userRegister,
+       post: posts, createPost,
+     }}>
 
     <div className="App">
       <Nav />
@@ -59,7 +71,7 @@ export function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/services' element={<Services services={services}/>} />
-        <Route path='/post' element={<PostService />} />
+        <Route path='/post' element={<PostService updatePosts = {updatePosts}/>} />
         <Route path='/logout' element={<Logout/>} />
       </Routes>
       <Footer />
