@@ -12,8 +12,9 @@ import { Route, Routes } from 'react-router-dom'
 import { PostService } from "./sections/components/PostService/PostService";
 import { getData, createPost } from "./Services/useData";
 import { useEffect, useState } from "react";
+import { useLocalStorage } from "./hooks/useLocalStorage"
 
-import { AuthContext } from "./context/authContext";
+import { AuthContext, PostServiceContext } from "./context/authContext";
 import { Logout } from "./sections/components/Logout/Logout";
 
 
@@ -35,7 +36,8 @@ export function App() {
     responsePost.then(res => setPost(Object.values(res)));
   },[])
 
-  const [auth, setAuth] = useState({})
+  const [auth, setAuth] = useLocalStorage('auth', {})
+
   const userLogin = (authData) => {
     setAuth(authData)
   }
@@ -46,19 +48,18 @@ export function App() {
     setAuth({})
   }
 
-  const updatePosts = (newPost) => {  
-    setPost(posts => [
-      ...posts, 
-      {
-        // ...newPost
-      }
-    ])
-  }
+  const createPostService = (newPost) => {
+      setPost(posts => [
+        ...posts,
+        {
+          ...newPost
+        } 
+      ])
+    }
   
   return (
     <AuthContext.Provider value={{
-       user: auth, userLogin , userLogout, userRegister,
-       post: posts, createPost,
+       user: auth, userLogin , userLogout, userRegister
      }}>
 
     <div className="App">
@@ -71,7 +72,7 @@ export function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/services' element={<Services services={services}/>} />
-        <Route path='/post' element={<PostService updatePosts = {updatePosts}/>} />
+        <Route path='/post' element={<PostService createPostService={createPostService}/>} />
         <Route path='/logout' element={<Logout/>} />
       </Routes>
       <Footer />

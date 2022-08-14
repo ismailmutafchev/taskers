@@ -1,23 +1,35 @@
-const request = async(method, url, data) => {
+const request = async (method, url, data, accessToken) => {
+
+    accessToken = JSON.parse(localStorage.user).accessToken;
 
     try {
+        const user = localStorage.getItem('auth');
+        const auth = JSON.parse(user || '{}');
+
+        let headers = {}
+        console.log(auth.accessToken);
+
+        if (auth.accessToken) {
+            headers['X-Authorization'] = auth.accessToken;
+        }
         let buildRequest;
 
         if (method === 'GET') {
             buildRequest = fetch(url)
-        }else {
+        } else {
             buildRequest = fetch(url, {
                 method,
                 headers: {
-                    'content-type':'application/json'
+                    ...headers,
+                    'content-type': 'application/json'
                 },
                 body: JSON.stringify(data)
             })
         }
         const response = await buildRequest;
-        
-        const result= await response.json();
-    
+
+        const result = await response.json();
+
         return result
     } catch (error) {
         console.log(error);
@@ -28,5 +40,5 @@ const request = async(method, url, data) => {
 export const get = request.bind({}, 'GET')
 export const post = request.bind({}, 'POST')
 export const patch = request.bind({}, 'PATCH')
-export const put = request.bind({},'PUT')
+export const put = request.bind({}, 'PUT')
 export const del = request.bind({}, 'DELETE')
