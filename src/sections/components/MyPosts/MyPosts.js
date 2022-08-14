@@ -2,9 +2,9 @@ import { MyPostCard } from './myPostCard/myPostCard'
 import * as useData from '../../../Services/useData'
 
 
-export const MyPosts = ({ myPost , myPostHandler }) => {
+export const MyPosts = ({ myPost , myPostHandler, auth }) => {
     console.log(myPost);
-    useData.getMyPosts(myPost._ownerId)
+    useData.getMyPosts(auth._id)
     .then(x => console.log(x))
     
     if (myPost.length > 0) {

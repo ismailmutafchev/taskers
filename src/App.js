@@ -44,7 +44,6 @@ export function App() {
   const [auth, setAuth] = useLocalStorage('auth', {})
 
   const userLogin = (authData) => {
-    console.log(posts.filter(x => x._ownerId = auth._id));
     setAuth(authData)
   }
   const userRegister = (authData) => {
@@ -96,7 +95,7 @@ export function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/services' element={<Services services={services}/>} />
         <Route path='/post' element={<PostService createPostService={createPostService} />} />
-        <Route path='/my-posts' element={<MyPosts myPost = {myPosts} myPostsHandler={myPostsHandler}/>}/>
+        <Route path='/my-posts' element={<MyPosts myPost = {myPosts} myPostsHandler={myPostsHandler} auth={auth}/>}/>
         <Route path='/logout' element={<Logout/>} />
       </Routes>
       <Footer />
