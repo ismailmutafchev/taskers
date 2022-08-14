@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { SlideService } from './SlideService'
 
 export function SlideWindow({ postData }) {

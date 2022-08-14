@@ -7,7 +7,6 @@ const request = async (method, url, data, accessToken) => {
         const auth = JSON.parse(user || '{}');
 
         let headers = {}
-        console.log(auth.accessToken);
 
         if (auth.accessToken) {
             headers['X-Authorization'] = auth.accessToken;

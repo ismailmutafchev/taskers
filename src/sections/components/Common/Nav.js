@@ -26,7 +26,7 @@ export function Nav() {
                             <ul className="navbar-nav  ">
 
                                 <li className="nav-item active">
-                                    <Link className="nav-link" to="/">My Heuston<span className="sr-only">(current)</span></Link>
+                                    <Link className="nav-link" to="/my-posts">My Heuston<span className="sr-only">(current)</span></Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="post">Post Service</Link>

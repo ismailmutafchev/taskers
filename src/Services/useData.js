@@ -8,3 +8,11 @@ export const getData = (direction) => {
 export const createPost = (data) => {
     return request.post(`http://localhost:3030/data/services`,data)
 }
+
+export const myPost = (data) => {
+    return request.post(`http://localhost:3030/data/services`,data)
+}
+
+export const getById = (data, id) => {
+    return request.put(`http://localhost:3030/data/services/${id}`,data)
+}

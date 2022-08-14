@@ -1,6 +1,6 @@
 import * as useData from '../../../Services/useData'
 
-export function PostService({createPostService, myPosts}) {
+export function EditPost({createPostService}) {
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -9,10 +9,9 @@ export function PostService({createPostService, myPosts}) {
         const newPost = Object.fromEntries(new FormData(e.target))
 
         if (Object.values(newPost !== "" )) {
-            useData.createPost(newPost)
+            useData.getById(newPost)
             .then(res => {
                 createPostService(res)
-                myPosts(res)
             })   
         }
     }
@@ -22,7 +21,7 @@ export function PostService({createPostService, myPosts}) {
         <section className="contact_section input login" id="login">
             <form id="post-service-form" onSubmit={onSubmit}>
                 <div className="custom_heading-container">
-                    <h3 >Post Service</h3>
+                    <h3>Post Service</h3>
                 </div>
                 <div className="container">
                     <div className="col-md-6 mx-auto">

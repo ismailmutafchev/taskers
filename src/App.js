@@ -16,6 +16,7 @@ import { useLocalStorage } from "./hooks/useLocalStorage"
 
 import { AuthContext, PostServiceContext } from "./context/authContext";
 import { Logout } from "./sections/components/Logout/Logout";
+import { MyPosts } from "./sections/components/MyPosts/MyPosts";
 
 
 
@@ -29,9 +30,13 @@ export function App() {
     responseService.then(res => setService(Object.values(res)));
   },[])
   
-
+  
   const [posts, setPost] = useState([])
+  
+  const [myPosts, setMyPost] = useState([])
+
   let responsePost = getData('posts')
+
   useEffect(() => {
     responsePost.then(res => setPost(Object.values(res)));
   },[])
@@ -46,6 +51,7 @@ export function App() {
   }
   const userLogout = () => {
     setAuth({})
+    setMyPost({})
   }
 
   const createPostService = (newPost) => {
@@ -56,7 +62,17 @@ export function App() {
         } 
       ])
     }
-  
+
+
+    const myPostsHandler = (newPost) => {
+      setMyPost(posts => [
+        ...posts,
+        {
+          ...newPost
+        } 
+      ]) 
+    }
+
   return (
     <AuthContext.Provider value={{
        user: auth, userLogin , userLogout, userRegister
@@ -72,7 +88,8 @@ export function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/services' element={<Services services={services}/>} />
-        <Route path='/post' element={<PostService createPostService={createPostService}/>} />
+        <Route path='/post' element={<PostService createPostService={createPostService} myPosts={myPostsHandler}/>} />
+        <Route path='/my-posts' element={<MyPosts myPost = {myPosts}/>}/>
         <Route path='/logout' element={<Logout/>} />
       </Routes>
       <Footer />
