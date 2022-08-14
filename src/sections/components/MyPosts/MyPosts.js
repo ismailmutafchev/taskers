@@ -1,7 +1,12 @@
 import { MyPostCard } from './myPostCard/myPostCard'
+import * as useData from '../../../Services/useData'
 
 
-export const MyPosts = ({ myPost }) => {
+export const MyPosts = ({ myPost , myPostHandler }) => {
+    console.log(myPost);
+    useData.getMyPosts(myPost._ownerId)
+    .then(x => console.log(x))
+    
     if (myPost.length > 0) {
         return (
             myPost.map(x => <MyPostCard key={x._id} post={x} />)

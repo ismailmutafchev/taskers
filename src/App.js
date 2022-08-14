@@ -56,18 +56,28 @@ export function App() {
   }
 
   const createPostService = (newPost) => {
-    setMyPost(posts => [
-      ...posts,
-      {
-        ...newPost
-      } 
-    ]) 
+   
       setPost(posts => [
         ...posts,
         {
           ...newPost
         } 
       ])
+      setMyPost(posts => [
+        ...posts,
+        {
+          ...newPost
+        } 
+      ]) 
+    }
+
+   const myPostsHandler = (newPost) => {
+      setMyPost(posts => [
+        ...posts,
+        {
+          ...newPost
+        } 
+      ]) 
     }
 
   return (
@@ -85,8 +95,8 @@ export function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/services' element={<Services services={services}/>} />
-        <Route path='/post' element={<PostService createPostService={createPostService}/>} />
-        <Route path='/my-posts' element={<MyPosts myPost = {myPosts}/>}/>
+        <Route path='/post' element={<PostService createPostService={createPostService} />} />
+        <Route path='/my-posts' element={<MyPosts myPost = {myPosts} myPostsHandler={myPostsHandler}/>}/>
         <Route path='/logout' element={<Logout/>} />
       </Routes>
       <Footer />
